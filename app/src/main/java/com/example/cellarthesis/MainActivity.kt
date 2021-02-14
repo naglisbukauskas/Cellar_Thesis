@@ -18,7 +18,10 @@ class MainActivity : AppCompatActivity() {
 
         recycler_view = findViewById(R.id.recycler_view)
         recycler_view.adapter = ExampleAdapter(exampleList)
-        recycler_view.layoutManager = LinearLayoutManager(this)
+        //This is the main line of code that makes the recyclerView horizontal. In the main activity XML
+        //the recyclerview orientation is also set as Horizontal, but without the "LinearLayoutManager.HORIZONTAL" then
+        //the recyclerView still remains vertical
+        recycler_view.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         recycler_view.setHasFixedSize(true)
 
     }

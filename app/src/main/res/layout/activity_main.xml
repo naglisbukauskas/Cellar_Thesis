@@ -12,6 +12,7 @@
         android:clipToPadding="false"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:orientation="horizontal"
         tools:listitem="@layout/example_item"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
