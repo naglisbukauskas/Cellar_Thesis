@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu   xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_library"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="Library" />
+        <item
+            android:id="@+id/nav_recommendations"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="Recommendations" />
+        <item
+            android:id="@+id/nav_subscriptions"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="Subscriptions"/>
+        <item
+            android:id="@+id/nav_news"
+            android:icon="@drawable/ic_baseline_alarm_on_24"
+            android:title="News"/>
+        <item
+            android:id="@+id/nav_profile"
+            android:icon="@drawable/ic_baseline_archive_24"
+            android:title="Profile"/>
+    </group>
+</menu>

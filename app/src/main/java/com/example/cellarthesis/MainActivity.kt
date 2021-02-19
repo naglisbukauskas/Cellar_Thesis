@@ -1,49 +1,56 @@
 package com.example.cellarthesis
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import android.view.Menu
+import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.android.material.snackbar.Snackbar
+import com.google.android.material.navigation.NavigationView
+import androidx.navigation.findNavController
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.navigateUp
+import androidx.navigation.ui.setupActionBarWithNavController
+import androidx.navigation.ui.setupWithNavController
+import androidx.drawerlayout.widget.DrawerLayout
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
+import com.example.cellarthesis.R
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var recycler_view: RecyclerView
+    private lateinit var appBarConfiguration: AppBarConfiguration
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val exampleList = generateDummyList(500)
+        //Top *yellow* toolbar with triple settings button
+        val toolbar: Toolbar = findViewById(R.id.toolbar)
+        setSupportActionBar(toolbar)
 
-        recycler_view = findViewById(R.id.recycler_view)
-        recycler_view.adapter = ExampleAdapter(exampleList)
-        //This is the main line of code that makes the recyclerView horizontal. In the main activity XML
-        //the recyclerview orientation is also set as Horizontal, but without the "LinearLayoutManager.HORIZONTAL" then
-        //the recyclerView still remains vertical
-        recycler_view.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
-        recycler_view.setHasFixedSize(true)
-
-    }
-
-    private fun generateDummyList(size: Int): List<ExampleItem> {
-
-        val list = ArrayList<ExampleItem>()
-
-        for(i in 0 until size) {
-            val drawable = when (i % 3) {
-                0 -> R.drawable.ic_baseline_alarm_on_24
-                1 -> R.drawable.ic_baseline_archive_24
-                else -> R.drawable.ic_baseline_airline_seat_legroom_extra_24
-            }
-
-            val item = ExampleItem(drawable, "Item $i", "Line 2")
-            list.add(item)
-
+        //Lower bottom right floating action button
+        val fab: FloatingActionButton = findViewById(R.id.fab)
+        fab.setOnClickListener { view ->
+            Snackbar.make(view, "Add a movie", Snackbar.LENGTH_LONG).setAction("Action", null).show()
         }
 
-        return list
+        val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
+        val navView: NavigationView = findViewById(R.id.nav_view)
+        val navController = findNavController(R.id.nav_host_fragment)
+
+        appBarConfiguration = AppBarConfiguration(setOf(R.id.nav_library, R.id.nav_recommendations, R.id.nav_subscriptions, R.id.nav_news, R.id.nav_profile), drawerLayout)
+        setupActionBarWithNavController(navController, appBarConfiguration)
+        navView.setupWithNavController(navController)
 
     }
 
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        menuInflater.inflate(R.menu.main, menu)
+        return true
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        val navController = findNavController(R.id.nav_host_fragment)
+        return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
+    }
 }

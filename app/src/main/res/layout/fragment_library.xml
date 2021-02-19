@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.library.LibraryFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/Heading1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Heading 1"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:padding="4dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:padding="4dp"
+                android:id="@+id/recycler_view_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@id/Heading1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:listitem="@layout/example_item"/>
+
+            <TextView
+                android:id="@+id/Heading2"
+                android:padding="4dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Heading 2"
+                app:layout_constraintTop_toBottomOf="@id/recycler_view_1"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:padding="4dp"
+                android:id="@+id/recycler_view_2"
+                android:clipToPadding="false"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@id/Heading2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:listitem="@layout/example_item"/>
+
+            <TextView
+                android:padding="4dp"
+                android:id="@+id/Heading3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Heading 3"
+                app:layout_constraintTop_toBottomOf="@id/recycler_view_2"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:padding="4dp"
+                android:id="@+id/recycler_view_3"
+                android:clipToPadding="false"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@id/Heading3"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:listitem="@layout/example_item"/>
+
+            <TextView
+                android:padding="4dp"
+                android:id="@+id/Heading4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Heading 4"
+                app:layout_constraintTop_toBottomOf="@id/recycler_view_3"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:padding="4dp"
+                android:id="@+id/recycler_view_4"
+                android:clipToPadding="false"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@id/Heading4"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:listitem="@layout/example_item"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
