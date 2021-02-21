@@ -16,6 +16,8 @@ import java.io.IOException
 
 class LibraryFragment : Fragment() {
 
+    //data should absolutely NOT be called from the Fragment, it needs to be called from the ViewModel.
+
     private lateinit var libraryViewModel: LibraryViewModel
 
     private lateinit var recyclerView1: RecyclerView
@@ -27,7 +29,7 @@ class LibraryFragment : Fragment() {
         //This inflates the view for the fragment
         val view = inflater.inflate(R.layout.fragment_library, container, false)
 
-        fetchJson()
+
 
         val exampleList = generateDummyList(500)
 
@@ -66,6 +68,7 @@ class LibraryFragment : Fragment() {
     }
 
     fun fetchJson() {
+
         println("Attempting to fetch JSON")
 
         val url = "https://unogsng.p.rapidapi.com/genres"
