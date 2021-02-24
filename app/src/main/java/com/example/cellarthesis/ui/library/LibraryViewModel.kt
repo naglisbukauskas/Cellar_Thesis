@@ -20,13 +20,16 @@ class LibraryViewModel : ViewModel() {
            println("Attempting to fetch JSON")
 
            val url = "https://unogsng.p.rapidapi.com/genres"
+
            val client = OkHttpClient()
+
            val request = Request.Builder()
                    .url("https://unogsng.p.rapidapi.com/genres")
                    .get()
                    .addHeader("x-rapidapi-key", "f174346b7amsh8eea6a1f1dd6b88p1a04c4jsna38d165ebdcd")
                    .addHeader("x-rapidapi-host", "unogsng.p.rapidapi.com")
                    .build()
+
            val response = client.newCall(request).enqueue(object: Callback {
                override fun onFailure(call: Call, e: IOException) {
                    println("failure")

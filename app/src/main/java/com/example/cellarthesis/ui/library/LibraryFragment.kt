@@ -29,7 +29,7 @@ class LibraryFragment : Fragment() {
         //This inflates the view for the fragment
         val view = inflater.inflate(R.layout.fragment_library, container, false)
 
-        libraryViewModel.fetchData()
+        //libraryViewModel.fetchData()
 
         val exampleList = generateDummyList(500)
 

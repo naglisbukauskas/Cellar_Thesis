@@ -1,7 +1,9 @@
 package com.example.cellarthesis
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
+import androidx.activity.viewModels
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.navigation.NavigationView
@@ -13,13 +15,17 @@ import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import androidx.lifecycle.Observer
 import com.example.cellarthesis.R
+import com.squareup.picasso.Picasso
 
 val awesome = 5
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
+
+    val model: MainActivityViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,10 +35,13 @@ class MainActivity : AppCompatActivity() {
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
 
+
+
         //Lower bottom right floating action button
         val fab: FloatingActionButton = findViewById(R.id.fab)
-        fab.setOnClickListener { view ->
-            Snackbar.make(view, "Add a movie", Snackbar.LENGTH_LONG).setAction("Action", null).show()
+        fab.setOnClickListener {
+            val intent = Intent(this, AddMovieActivity::class.java)
+            startActivity(intent)
         }
 
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
@@ -42,6 +51,10 @@ class MainActivity : AppCompatActivity() {
         appBarConfiguration = AppBarConfiguration(setOf(R.id.nav_library, R.id.nav_recommendations, R.id.nav_subscriptions, R.id.nav_news, R.id.nav_profile), drawerLayout)
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+
+        val testItemListObserver = Observer<ArrayList<TestItem>> { newTestItem ->
+
+        }
 
     }
 
