@@ -34,4 +34,10 @@
         android:name="com.example.cellarthesis.ui.profile.ProfileFragment"
         android:label="Profile"
         tools:layout="@layout/fragment_profile" />
+
+    <fragment
+        android:id="@+id/nav_add_movie"
+        android:name="com.example.cellarthesis.ui.addmovie.AddMovieFragment"
+        android:label="Add Movie"
+        tools:layout="@layout/fragment_add_movie" />
 </navigation>

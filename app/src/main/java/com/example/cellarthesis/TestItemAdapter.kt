@@ -21,10 +21,7 @@ class TestItemAdapter(private val testItemList: List<TestItem>) : RecyclerView.A
 
         val currentItem = testItemList[position]
 
-        println("Picasso Call Starts")
-
-        Picasso.get().load("https://occ-0-2219-2218.1.nflxso.net/dnm/api/v6/evlCitJPPCVCry0BZlEFb5-QjKc/AAAABW-3KdzddLNpQk8HzQhgzN21CRvEHgPzBOQRDDF17My05gvDYi6DctxoFeSW1YsX53Wwx2Ygn0zU-4mVyadygewg3w.jpg?r=efc").into(holder.imageView)
-        println("Picasso Call Ends")
+        Picasso.get().load(currentItem.img).resize(332,466).into(holder.imageView)
         holder.textView1.text = currentItem.title
         holder.textView2.text = currentItem.year
     }
