@@ -1,6 +1,5 @@
 package com.example.cellarthesis
 
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -12,13 +11,13 @@ import java.io.IOException
 
 class MainActivityViewModel : ViewModel() {
 
-    val movieArrayList: MutableLiveData<ArrayList<TestItem>> by lazy {
-        MutableLiveData<ArrayList<TestItem>>(initArrayList)
+    val movieArrayList: MutableLiveData<ArrayList<MovieItem>> by lazy {
+       MutableLiveData<ArrayList<MovieItem>>(initArrayList)
     }
 
 
-    private val testItem1: TestItem = TestItem("Movie 1", "test", "2001")
-    private val initArrayList = arrayListOf(testItem1)
+    private val movieItem1: MovieItem = MovieItem("Movie 1", "test", "2001")
+    private val initArrayList = arrayListOf(movieItem1)
 
 
 
@@ -43,7 +42,8 @@ class MainActivityViewModel : ViewModel() {
                     val gson = GsonBuilder().create()
                     val testingShit: APIResultsItem = gson.fromJson(body, APIResultsItem::class.java)
 
-                    val tempArrList: ArrayList<TestItem>? = movieArrayList.value
+                    //I should add a length check here
+                    val tempArrList: ArrayList<MovieItem>? = movieArrayList.value
                     tempArrList!!.add(testingShit.results[0])
                     movieArrayList.postValue(tempArrList)
                     println("Movie Array List: ${movieArrayList.value}")
@@ -51,9 +51,5 @@ class MainActivityViewModel : ViewModel() {
             })
         }
         println("FetchData Complete")
-    }
-
-    fun updateMLD() {
-
     }
 }

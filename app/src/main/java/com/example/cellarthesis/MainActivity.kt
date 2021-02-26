@@ -44,7 +44,7 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
-        val arrListObserver = Observer<ArrayList<TestItem>> { newArrayList ->
+        val arrListObserver = Observer<ArrayList<MovieItem>> { newArrayList ->
             println("Main Activity Observer: $newArrayList")
         }
 
