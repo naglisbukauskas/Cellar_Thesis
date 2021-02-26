@@ -12,7 +12,8 @@ import java.io.IOException
 class MainActivityViewModel : ViewModel() {
 
     val movieArrayList: MutableLiveData<ArrayList<MovieItem>> by lazy {
-       MutableLiveData<ArrayList<MovieItem>>(initArrayList)
+       //MutableLiveData<ArrayList<MovieItem>>(initArrayList)
+        MutableLiveData<ArrayList<MovieItem>>()
     }
 
 
@@ -43,10 +44,15 @@ class MainActivityViewModel : ViewModel() {
                     val testingShit: APIResultsItem = gson.fromJson(body, APIResultsItem::class.java)
 
                     //I should add a length check here
-                    val tempArrList: ArrayList<MovieItem>? = movieArrayList.value
-                    tempArrList!!.add(testingShit.results[0])
-                    movieArrayList.postValue(tempArrList)
-                    println("Movie Array List: ${movieArrayList.value}")
+                    if(movieArrayList.value == null) {
+                        val tempArrList: ArrayList<MovieItem> = arrayListOf(testingShit.results[0])
+                        movieArrayList.postValue(tempArrList)
+                    } else {
+                        val tempArrList: ArrayList<MovieItem>? = movieArrayList.value
+                        tempArrList!!.add(testingShit.results[0])
+                        movieArrayList.postValue(tempArrList)
+                        println("Movie Array List: ${movieArrayList.value}")
+                    }
                 }
             })
         }

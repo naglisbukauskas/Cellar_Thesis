@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
@@ -41,17 +43,17 @@ class LibraryFragment : Fragment() {
         recyclerView1.setHasFixedSize(true)
 
         recyclerView2 = view.findViewById(R.id.recycler_view_2)
-        recyclerView2.adapter = MovieItemAdapter(model.movieArrayList.value as List<MovieItem>)
+        //recyclerView2.adapter = MovieItemAdapter(model.movieArrayList.value as List<MovieItem>)
         recyclerView2.layoutManager = LinearLayoutManager(view.context, LinearLayoutManager.HORIZONTAL, false)
         recyclerView2.setHasFixedSize(true)
 
         recyclerView3 = view.findViewById(R.id.recycler_view_3)
-        recyclerView3.adapter = MovieItemAdapter(model.movieArrayList.value as List<MovieItem>)
+        //recyclerView3.adapter = MovieItemAdapter(model.movieArrayList.value as List<MovieItem>)
         recyclerView3.layoutManager = LinearLayoutManager(view.context, LinearLayoutManager.HORIZONTAL, false)
         recyclerView3.setHasFixedSize(true)
 
         recyclerView3 = view.findViewById(R.id.recycler_view_4)
-        recyclerView3.adapter = MovieItemAdapter(model.movieArrayList.value as List<MovieItem>)
+        //recyclerView3.adapter = MovieItemAdapter(model.movieArrayList.value as List<MovieItem>)
         recyclerView3.layoutManager = LinearLayoutManager(view.context, LinearLayoutManager.HORIZONTAL, false)
         recyclerView3.setHasFixedSize(true)
 
@@ -62,8 +64,11 @@ class LibraryFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val arrListObserver = Observer<ArrayList<MovieItem>> { newArrayList ->
-            recyclerView1.adapter = MovieItemAdapter(newArrayList as List<MovieItem>)
-            println("Library Fragment Observer: $newArrayList")
+            if(newArrayList.size > 0) {
+                recyclerView1.adapter = MovieItemAdapter(newArrayList as List<MovieItem>)
+                view.findViewById<TextView>(R.id.library_fragment_placeholder_text).visibility = View.INVISIBLE
+                println("Library Fragment Observer: $newArrayList")
+            }
 
         }
 
