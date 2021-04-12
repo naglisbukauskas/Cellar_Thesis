@@ -32,5 +32,11 @@
             android:id="@+id/nav_add_movie"
             android:icon="@drawable/ic_baseline_archive_24"
             android:title="Add Movie"/>
+
+        <item
+            android:id="@+id/nav_add_subscription"
+            android:icon="@drawable/ic_baseline_archive_24"
+            android:title="Add Subscription"/>
+
     </group>
 </menu>

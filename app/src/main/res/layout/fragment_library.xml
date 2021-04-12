@@ -6,6 +6,18 @@
     android:layout_height="match_parent"
     tools:context=".ui.library.LibraryFragment">
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/fab_margin"
+        app:srcCompat="@drawable/ic_add"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:backgroundTint="@color/CYellow"/>
+
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -18,7 +30,7 @@
                 android:id="@+id/Heading1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Heading 1"
+                android:text="Netflix"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 android:padding="4dp"
@@ -40,7 +52,7 @@
                 android:padding="4dp"
                 android:id="@+id/recycler_view_1"
                 android:layout_width="wrap_content"
-                android:layout_height="185dp"
+                android:layout_height="250dp"
                 android:orientation="horizontal"
                 app:layout_constraintTop_toBottomOf="@id/Heading1"
                 app:layout_constraintStart_toStartOf="parent"
@@ -52,7 +64,7 @@
                 android:padding="4dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Heading 2"
+                android:text="Amazon"
                 app:layout_constraintTop_toBottomOf="@id/recycler_view_1"
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginStart="8dp"
@@ -63,19 +75,19 @@
                 android:id="@+id/recycler_view_2"
                 android:clipToPadding="false"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="250dp"
                 android:orientation="horizontal"
                 app:layout_constraintTop_toBottomOf="@id/Heading2"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                tools:listitem="@layout/example_item"/>
+                tools:listitem="@layout/test_item"/>
 
             <TextView
                 android:padding="4dp"
                 android:id="@+id/Heading3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Heading 3"
+                android:text="Hulu Plus"
                 app:layout_constraintTop_toBottomOf="@id/recycler_view_2"
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginStart="8dp"
@@ -86,12 +98,12 @@
                 android:id="@+id/recycler_view_3"
                 android:clipToPadding="false"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="250dp"
                 android:orientation="horizontal"
                 app:layout_constraintTop_toBottomOf="@id/Heading3"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                tools:listitem="@layout/example_item"/>
+                tools:listitem="@layout/test_item"/>
 
             <TextView
                 android:padding="4dp"
@@ -109,12 +121,13 @@
                 android:id="@+id/recycler_view_4"
                 android:clipToPadding="false"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="250dp"
                 android:orientation="horizontal"
                 app:layout_constraintTop_toBottomOf="@id/Heading4"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                tools:listitem="@layout/example_item"/>
+                tools:listitem="@layout/test_item"/>
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

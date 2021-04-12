@@ -15,4 +15,11 @@
     <string name="naglis_bukauskas">Naglis Bukauskas</string>
     <string name="movie_title">Movie Title</string>
     <string name="LibraryFragmentPlaceHolderText">You haven\'t added any movies to your library yet!</string>
+    <string name="add_subscription">Add subscription</string>
+    <string name="addmovie">ADDMOVIE</string>
+    <string-array name="svod_array">
+        <item>Netflix</item>
+        <item>Amazon</item>
+        <item>Hulu Plus</item>
+    </string-array>
 </resources>

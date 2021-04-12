@@ -8,7 +8,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 
-class MovieItemAdapter(private val movieItemList: List<MovieItem>) : RecyclerView.Adapter<MovieItemAdapter.TestItemViewHolder>() {
+class RecMovieItemAdapter(private val movieItemList: List<RecMovieItem>) : RecyclerView.Adapter<RecMovieItemAdapter.TestItemViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TestItemViewHolder {
 
@@ -19,12 +19,9 @@ class MovieItemAdapter(private val movieItemList: List<MovieItem>) : RecyclerVie
     override fun onBindViewHolder(holder: TestItemViewHolder, position: Int) {
 
         val currentItem = movieItemList[position]
-        if(currentItem.img == "") {
-            Picasso.get().load("https://www.salonlfc.com/wp-content/uploads/2018/01/image-not-found-scaled.png").resize(332, 466).into(holder.imageView)
-        } else {
-            Picasso.get().load(currentItem.img).resize(332, 466).into(holder.imageView)
-        }
-        holder.textView1.text = currentItem.title
+
+        Picasso.get().load(currentItem.posterURLs.original).resize(332,466).into(holder.imageView)
+        holder.textView1.text = currentItem.originalTitle
         //holder.textView2.text = currentItem.year
     }
 

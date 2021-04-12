@@ -30,17 +30,23 @@ class MainActivity : AppCompatActivity() {
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
 
-        val fab: FloatingActionButton = findViewById(R.id.fab)
+       /* val fab: FloatingActionButton = findViewById(R.id.fab)
         fab.setOnClickListener {
-            /*val intent = Intent(this, AddMovieActivity::class.java)
-            startActivity(intent)*/
-        }
+            *//*val intent = Intent(this, AddMovieActivity::class.java)
+            startActivity(intent)*//*
+        }*/
 
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
         val navView: NavigationView = findViewById(R.id.nav_view)
         val navController = findNavController(R.id.nav_host_fragment)
 
-        appBarConfiguration = AppBarConfiguration(setOf(R.id.nav_library, R.id.nav_recommendations, R.id.nav_subscriptions, R.id.nav_news, R.id.nav_profile, R.id.nav_add_movie), drawerLayout)
+        appBarConfiguration = AppBarConfiguration(setOf(R.id.nav_library,
+                                                        R.id.nav_recommendations,
+                                                        R.id.nav_subscriptions,
+                                                        R.id.nav_news,
+                                                        R.id.nav_profile,
+                                                        R.id.nav_add_movie,
+                                                        R.id.nav_add_subscription), drawerLayout)
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
@@ -49,6 +55,10 @@ class MainActivity : AppCompatActivity() {
         }
 
         model.movieArrayList.observe(this, arrListObserver)
+    }
+
+    fun getNav(): AppBarConfiguration {
+        return appBarConfiguration
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

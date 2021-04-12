@@ -18,7 +18,8 @@
             android:src="@drawable/ic_menu_gallery"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/test_item_text_view"/>
 
         <TextView
             android:id="@+id/test_item_text_view"

@@ -40,4 +40,10 @@
         android:name="com.example.cellarthesis.ui.addmovie.AddMovieFragment"
         android:label="Add Movie"
         tools:layout="@layout/fragment_add_movie" />
+
+    <fragment
+        android:id="@+id/nav_add_subscription"
+        android:name="com.example.cellarthesis.ui.addsubscription.AddSubscriptionFragment"
+        android:label="Add Subscription"
+        tools:layout="@layout/fragment_add_subscription"/>
 </navigation>

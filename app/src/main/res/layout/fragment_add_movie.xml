@@ -6,6 +6,29 @@
     android:layout_height="match_parent"
     tools:context=".ui.news.NewsFragment">
 
+    <TextView
+        android:id="@+id/platform_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/fragmentMovieEditText"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/fragmentMovieEditText"
+        android:text="Platform"
+        android:textSize="18sp"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="4dp"/>
+
+
+    <Spinner
+        android:id="@+id/svod_spinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/fragmentMovieEditText"
+        app:layout_constraintBottom_toTopOf="@id/fragmentMovieEditText"
+        android:layout_marginBottom="4dp"/>
+
+
     <EditText
         android:id="@+id/fragmentMovieEditText"
         android:layout_width="match_parent"
@@ -19,7 +42,7 @@
         android:paddingStart="12dp"
         android:paddingEnd="12dp"
         android:hint="@string/movie_title"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/svod_spinner"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toTopOf="@id/fragment_add_movie_search_results"
